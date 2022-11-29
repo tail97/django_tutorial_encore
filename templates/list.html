@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> list </h1>
+    <p>이름| 제목 | 내용| url| email |작성 날짜</p>
+    <ul>
+        {% for article in article_list %}
+        <il> <a href="/view_detail/{{article.id}}">{{article.name}}</a>
+            <p>{{article.name}}</p>
+            <p>{{article.title}}</p>
+            <p>{{article.content}}</p>
+            <p>{{article.url}}</p>
+            <p>{{article.email}}</p>
+            <p>{{article.cdate|date:"Y년 M월 d일 D"}}</p>
+
+        </il>
+        {% endfor %}
+    </ul>
+
+</body>
+</html>
