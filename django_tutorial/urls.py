@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from community.views import write,articleList,viewDetail
+from community.views import write,articleList,viewDetail,index
 
 
 
@@ -23,5 +23,6 @@ urlpatterns = [
     path('admin/', admin.site.urls), # id랑 비밀번호 설정하는 창
     path('write/',write,name='write'),# db 정보를 입력 받을 수 있는 창 
     path('list/',articleList,name="list"), # db 정보를 볼 수 있는 창
-    path('view_detail/<int:num>/',viewDetail, name='view_detail')
+    path('view_detail/<int:num>/',viewDetail, name='view_detail'), #db정보를 세부창으로 볼 수 있는 창
+    path('',index, name= "index")
 ]
