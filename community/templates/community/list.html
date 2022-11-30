@@ -12,7 +12,7 @@
     <ul>
         {% for article in article_list %}
         <!--<a href="/view_detail/{{article.id}}"> 이 코드는 하이퍼링크를 {{article.name}}에다가 만들어줘서 페이지를 넘어가게 해주는 것을 구현 -->
-        <il> <a href="/view_detail/{{article.id}}">{{article.name}}</a>
+        <il> <a href="/community/view_detail/{{article.id}}">{{article.name}}</a>
             <p>{{article.name}}</p> <!-- forms.py에 지정했던 필드를 다 나열한다 . -->
             <p>{{article.title}}</p>
             <p>{{article.content}}</p>
