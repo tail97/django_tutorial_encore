@@ -1,28 +1,13 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1> list </h1>
-    <p>이름| 제목 | 내용| url| email |작성 날짜</p>
-    <ul>
-        {% for article in article_list %}
-        <!--<a href="/view_detail/{{article.id}}"> 이 코드는 하이퍼링크를 {{article.name}}에다가 만들어줘서 페이지를 넘어가게 해주는 것을 구현 -->
-        <il> <a href="/community/view_detail/{{article.id}}">{{article.name}}</a>
-            <p>{{article.name}}</p> <!-- forms.py에 지정했던 필드를 다 나열한다 . -->
-            <p>{{article.title}}</p>
-            <p>{{article.content}}</p>
-            <p>{{article.url}}</p>
-            <p>{{article.email}}</p>
-            <p>{{article.cdate|date:"Y년 M월 d일 D"}}</p>
-
-        </il>
-        {% endfor %}
-    </ul>
-
-</body>
-</html>
+{% extends 'partials/base.html' %}
+{% block title %}
+메모 목록
+{% endblock title %}
+{% block content %}
+<ul>
+    {% for article in article_list %}
+    <li><a href="/community/view_detail/{{ article.id }}">{{ article.title }}</a> | {{ article.name }} | {{
+        article.cdate|date:"Y년 M d일 D" }}</li>
+    {% endfor %}
+</ul>
+<a href="/community/write">메모하기</a>
+{% endblock content %}

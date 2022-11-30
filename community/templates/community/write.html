@@ -1,21 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+{% extends 'partials/base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}
+메모 작성
+{% endblock title %}
+{% block content %}
+<form action="" method="post">
+    <table>
+        {{ form | crispy }} {% csrf_token %}
+    </table>
+    <button type="submit"> 확인 </button>
+</form>
 
-    <form action="" method="post"> 
-        <table>
-
-            {{form}} {% csrf_token %}
-
-        </table>
-        <button type = "submit"> 확인 </button>
-    </form>
-
-</body>
-</html>
+{% endblock content %}

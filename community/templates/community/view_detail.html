@@ -1,39 +1,33 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <table> <!-- 페이지에서 어떻게 보여주는지 구현하는 코드, 순서대로 db가 저장된 정보를 보여준다.-->
-        <tr>
-            <td>id</td>
-            <td>{{article_detail.pk}}</td> 
-        </tr>
-        <tr>
-            <td>name</td>
-            <td>{{article_detail.name}}</td>
-        </tr>
-        <tr>
-            <td>title</td>
-            <td>{{article_detail.title}}</td>
-        </tr>
-        <tr>
-            <td>content</td>
-            <td>{{article_detail.content}}</td>
-        </tr>
-        <tr>
-            <td>url</td>
-            <td>{{article_detail.url}}</td>
-        </tr>
-        <tr>
-            <td>email</td>
-            <td>{{article_detail.email}}</td>
-        </tr>
-    
-    </table>
-    
-</body>
-</html>
+{% extends 'partials/base.html' %}
+{% block title %}
+메모 세부 내용
+{% endblock title %}
+{% block content %}
+<table>
+    <tr>
+        <td>no</td>
+        <td>{{ article_detail.pk }}</td>
+    </tr>
+    <tr>
+        <td>제목</td>
+        <td>{{ article_detail.title }}</td>
+    </tr>
+    <tr>
+        <td>내용</td>
+        <td>{{ article_detail.contents }}</td>
+    </tr>
+    <tr>
+        <td>작성자</td>
+        <td>{{ article_detail.name }}</td>
+    </tr>
+    <tr>
+        <td>이메일</td>
+        <td>{{ article_detail.email }}</td>
+    </tr>
+    </tr>
+    <tr>
+        <td>URL</td>
+        <td>{{ article_detail.url }}</td>
+    </tr>
+</table>
+{% endblock content %}
