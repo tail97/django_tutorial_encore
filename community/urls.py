@@ -1,6 +1,9 @@
 from django.urls import path
 from community.views import write, articleList, viewDetail
 
+
+app_name = 'community'
+
 urlpatterns = [
     path('write/', write, name='write'),# db 정보를 입력 받을 수 있는 창 
     path('list/', articleList, name='list'),# db 정보를 볼 수 있는 창

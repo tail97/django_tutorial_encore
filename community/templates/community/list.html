@@ -1,12 +1,12 @@
 {% extends 'partials/base.html' %}
 {% block title %}
-메모 목록
+
 {% endblock title %}
 {% block content %}
 <ul>
     {% for article in article_list %}
-    <li><a href="/community/view_detail/{{ article.id }}">{{ article.title }}</a> | {{ article.name }} | {{
-        article.cdate|date:"Y년 M d일 D" }}</li>
+    <li><a href="/community/view_detail/{{ article.id }}">{{ article.title }}</a> | {{ article.name }} |
+        {{ article.cdate|date:"Y년 M d일 D" }}</li>
     {% endfor %}
 </ul>
 <a href="/community/write">메모하기</a>

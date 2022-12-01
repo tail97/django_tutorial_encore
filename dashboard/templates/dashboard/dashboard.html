@@ -1,7 +1,7 @@
 {% extends 'partials/base.html' %}
 {% load crispy_forms_tags %}
 {% block title %}
-대시보드 페이지
+
 {% endblock title %}
 {% block content %}
 <h1>차트</h1>
@@ -36,7 +36,7 @@
             // labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
             labels: [
                 {% for ctry_data in country_datas %}
-          '{{ ctry_data.county }}',
+          '{{ ctry_data.country }}',
         {% endfor %}
       ],
         datasets: [{
