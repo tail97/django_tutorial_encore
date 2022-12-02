@@ -30,4 +30,8 @@
         <td>{{ article.url }}</td>
     </tr>
 </table>
+
+
+<button><a href="{% url 'community:update' object.id %}">수정</a></button>
+<button><a href="{% url 'community:delete' object.id %}">삭제</a></button>
 {% endblock content %}
