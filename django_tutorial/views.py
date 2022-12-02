@@ -3,6 +3,7 @@ from django.views.generic import CreateView, ListView, DetailView # 새로운 �
 from django.urls import reverse_lazy
 from .forms import CreateUserForm
 from community.models import Article
+from django.contrib.auth.mixins import AccessMixin
 
 
 class UserCreateView(CreateView):
@@ -15,3 +16,15 @@ class UserCreateView(CreateView):
 
 class UserCreateDoneTV(TemplateView):
     template_name = 'registration/register_done.html'
+
+
+# 믹스인 클래스 추가
+class OwnerOnlyMixin(AccessMixin):
+    raise_exception= True
+    permission_denied_message= "Owner only can update/delete the object"
+
+    def dispatch(self,request,*args,**kwargs):
+        obj = self.get_object()
+        if request.user != obj.owner:
+            return self.handle_no_permission()
+        return super().dispatch(request,*args,**kwargs)

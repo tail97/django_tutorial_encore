@@ -15,4 +15,11 @@ urlpatterns = [
     #view_detail
     # path('view_detail/<int:num>/', viewDetail, name='view_detail'),#db정보를 세부창으로 볼 수 있는 창
     path('view_detail/<slug:pk>/', views.ArticleDetailView.as_view(), name='view_detail'),#db정보를 세부창으로 볼 수 있는 창
+    #change
+    path("change/", views.ArticleChangeView.as_view(), name='change_list'),
+    # /view_detail/1/update
+    path('<int:pk>/update/', views.ArticleUpdateView.as_view(), name='update'),
+    # /view_detail/1/delete
+    path('<int:pk>/delete/', views.ArticleDeleteView.as_view(), name='delete'),
+
 ]
