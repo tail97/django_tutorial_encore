@@ -1,5 +1,4 @@
 from django.shortcuts import render
-
 from .forms import Form, Article
 # Create your views here.
 
@@ -33,3 +32,25 @@ def index(request):
     latest_article_list = Article.objects.all().order_by('-cdate')[:3]
     print(latest_article_list)
     return render(request, 'index.html', {'latest_article_list':latest_article_list})
+
+from django.views.generic import CreateView, ListView, DetailView, UpdateView
+from community.models import Article
+from django.urls import reverse_lazy
+
+
+class ArticleListView(ListView):
+    model = Article
+    template_name = 'community/list.html'
+
+class ArticleDetailView(DetailView):
+    model = Article
+    template_name= 'community/view_detail.html'
+
+class WriteFormView(CreateView):
+    model = Article
+    fields = ['name', 'title', 'contents', 'url', 'email']
+    template_name = 'community/write.html'
+    success_url = reverse_lazy("community:list")
+
+    def form_valid(self,form):
+        return super().form_valid(form)

@@ -3,11 +3,21 @@
 
 {% endblock title %}
 {% block content %}
+
+
+
+<h1 style=text-align:center> list </h1>
+<table class="table table-dark table-hover">
+
 <ul>
     {% for article in article_list %}
     <li><a href="/community/view_detail/{{ article.id }}">{{ article.title }}</a> | {{ article.name }} |
         {{ article.cdate|date:"Y년 M d일 D" }}</li>
     {% endfor %}
 </ul>
+</table>
+
 <a href="/community/write">메모하기</a>
 {% endblock content %}
+
+
